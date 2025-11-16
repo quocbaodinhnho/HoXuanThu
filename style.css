@@ -1,0 +1,195 @@
+/* style.css */
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f0f8ff 0%, #ffe4e1 100%);
+    color: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    font-weight: 400;
+}
+
+.apology-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    max-width: 700px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.thankyou-card {
+    padding-top: 80px;
+}
+
+.profile-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: -100px;
+    margin-bottom: 30px;
+}
+
+.gf-photo, .bf-photo, .thankyou-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ff7eb9;
+    box-shadow: 0 0 20px rgba(255, 126, 185, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gf-photo:hover, .bf-photo:hover, .thankyou-photo:hover {
+    transform: scale(1.05);
+}
+
+.thankyou-photo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    border-width: 6px;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    color: #e91e63;
+    margin-bottom: 25px;
+    font-size: 3.5em;
+    line-height: 1.2;
+}
+
+.thankyou-card h1 {
+    color: #4CAF50;
+    font-size: 3em;
+}
+
+p {
+    line-height: 1.8;
+    margin-bottom: 18px;
+    font-size: 1.15em;
+    color: #555;
+    font-weight: 300;
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    color: #777;
+    margin-top: 25px;
+    font-size: 1.2em;
+}
+
+/* Container cho 2 nút bấm */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 35px;
+    position: relative;
+    height: 100px; /* Cho nút "No" không gian để bay */
+}
+
+/* Nút "Yes" (Tha lỗi) */
+#forgiveButton {
+    background: linear-gradient(45deg, #ff69b4, #ffb6c1);
+    color: white;
+    padding: 16px 35px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3em;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: all 0.4s ease;
+    z-index: 10;
+    position: relative;
+}
+
+#forgiveButton:hover {
+    background: linear-gradient(45deg, #ffb6c1, #ff69b4);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(255, 105, 180, 0.6);
+}
+
+/* Nút "No" (Không tha lỗi) */
+#noButton {
+    background: #aaa;
+    color: #fff;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1em;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    transition: transform 0.4s ease, background-color 0.3s ease, opacity 0.4s ease;
+    z-index: 5;
+    position: relative;
+}
+
+#noButton:hover {
+    background: #888;
+}
+
+/* Hiệu ứng trái tim rơi */
+.heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.heart {
+    position: absolute;
+    background-color: #ffc0cb;
+    transform: rotate(-45deg);
+    animation: fall 12s linear infinite;
+    opacity: 0;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ffc0cb;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -50%;
+    left: 0;
+}
+
+.heart:after {
+    left: 50%;
+    top: 0;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(-45deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(100vh) rotate(-45deg); opacity: 0; }
+}
